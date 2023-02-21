@@ -2,18 +2,18 @@
 
 Para empezar con este proyecto necesitarás los siguientes requisitos previos:
 
-- 🔸 [NodeJS](https://nodejs.org/en/) - Se recomienda la version >= 18.14.1 (LTS)
-- 🔸 IDE - Se recomienda [VsCode](https://code.visualstudio.com/).
-- 🔸 [Swagger](https://editor.swagger.io/) - Lo utilizaremos para ver la API que tenemos que consultar, utiliza el `api/openapi.yaml` que hay en la raiz del proyecto para visualizar las APIs disponibles.
+- [NodeJS](https://nodejs.org/en/) - Se recomienda la version >= 18.14.1 (LTS)
+- IDE - Se recomienda [VsCode](https://code.visualstudio.com/).
+- [Swagger](https://editor.swagger.io/) - Lo utilizaremos para ver la API que tenemos que consultar, utiliza el `api/openapi.yaml` que hay en la raiz del proyecto para visualizar las APIs disponibles.
 
 # Descripción del proyecto
 
 Este proyecto tiene como objetivo crear una aplicación web visualmente atractiva para los usuarios, que les permita visualizar un ranking de prendas, y filtrar por tipo y por fecha, para el desarrrollo se han utilizado las siguiente tecnologías:
 
-- 🔹 [ReactJS](https://reactjs.org/) - Librería para construir la interfaz
-- 🔹 [Msw](https://mswjs.io/) - Librería que nos ayuda a mockear APIs
-- 🔹 [Vite](https://vitejs.dev/) - Herramienta para contruir el proyecto
-- 🔸 HTML - CSS - JavaScript - Tecnologías fundamentales para la creación de la aplicación web.
+- [ReactJS](https://reactjs.org/) - Librería para construir la interfaz
+- [Msw](https://mswjs.io/) - Librería que nos ayuda a mockear APIs
+- [Vite](https://vitejs.dev/) - Herramienta para contruir el proyecto
+- HTML - CSS - JavaScript - Tecnologías fundamentales para la creación de la aplicación web.
 
 # 🚀 ¿Cómo lo ejecuto en local?
 
@@ -25,19 +25,24 @@ Para ejecutar la aplicación en local, sigue los siguiente pasos:
 npm install
 ```
 
-1. Ahora, ejecuta el siguiente comando para iniciar la aplicación:
+2. Ahora, ejecuta el siguiente comando para iniciar la aplicación:
 
 ```shell
 npm start
+```
+
+Puedes también validar los test usando:
+```shell
+npm run test
 ```
 
 # 📦 Librería de componentes 
 
 Puedes usar cualquier librería de componentes que esté basada en ReactJS. A continuación se mencionan algunas recomendaciones:
 
-- 🔹 [Material UI](https://mui.com/)
-- 🔹 [Antd](https://ant.design/)
-- 🔹 [Chakra UI](https://chakra-ui.com/)
+- [Material UI](https://mui.com/)
+- [Antd](https://ant.design/)
+- [Chakra UI](https://chakra-ui.com/)
 
 O tambien puedes crearte tus propios componentes 😎.
 
