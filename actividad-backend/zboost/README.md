@@ -3,29 +3,47 @@
 Este módulo representa la aplicación de backend destinada a proporcionar la información necesaria para la aplicación de ranking propuesta en la actividad. Las tecnologías con
 las que se ha implementado son
 
-* 🔹 Java 17
-* 🔹 Spring Boot v3
-* 🔹 Spring Framework v6 (módulos web, JDBC y test)
-* 🔹 H2 (base de datos embebida)
+* Java 17
+* Spring Boot v3
+* Spring Framework v6 (módulos web, JDBC y test)
+* H2 (base de datos embebida)
 
 # ⚠️ ¿Qué necesito para empezar?
 
 Para poder desarrollar la prueba, necesitas tener instalado el siguiente software:
 
-* 🔹 JDK 17. Recomendamos usar la distribución de Eclipse Temurin: https://adoptium.net/es/temurin/releases/
-* 🔹 IDE. IntelliJ IDEA o Eclipse
+* JDK 17. Recomendamos usar la distribución de Eclipse Temurin: https://adoptium.net/es/temurin/releases/
+* IDE. IntelliJ IDEA o Eclipse
 
 # 🚀 ¿Cómo lo ejecuto en local?
 
-Para ejecutar la aplicación en local, puedes hacerlo de varias maneras:
+Para ejecutar la aplicación en local, puedes hacerlo de varias maneras. En cualquiera de los siguientes casos
+podrás observar que los test de la aplicación *fallan*.
+
+Tu tarea será implementar en el código los ejercicios que se muestran más abajo para que estos tests den 
+un resultado positivo. **NO DEBES MODIFICAR** los tests, únicamente añadir la implementación en la aplicación.
+
+Tienes anotados con comentarios (`TODO: ...`) unos puntos de referencia dentro del código parar guiar la 
+resolución de los ejercicios.
+
+## IDE
+
+Cualquiera de los IDEs mencionados en el apartado anterior proveen soporte a la ejecución de aplicaciones de tipo Spring Boot.
+
+Simplemente, haz click derecho sobre la clase `ZboostApplication.java` dentro de `src/main/java/com/inditex/zara/`y selecciona la opción para lanzar (`Run`) o debuggear (`Debug`) la aplicación.
+
+Para validar la aplicación puedes ejecutar desde el IDE todos los tests contenidos en el directorio `src/tests/java/`. Por ejemplo, en IntelliJ puedes seleccionar directamente el proyecto, click derecho y `Run 'All Tests'`. Otros IDEs tiene un sistema similar para ejecutarlos.
+
+**¡Ooops!** :fearful: Veras que hay varios tests fallidos. Debes de completar la implemetación dentro de la aplicación para que den un resultado
+positivo pero no debes modificar estos tests.
 
 ## Terminal
 
-1. Abre una terminal y muévete a la raíz del proyecto. Por ejemplo, si hemos hecho clone del repositorio con el
-nombre `zboost-workshop` dentro de la carpeta `projects` del usuario actual:
+1. Abre una terminal y muévete a la raíz del proyecto. Por ejemplo, si hemos hecho clone del repositorio
+dentro de la carpeta `projects` del usuario actual:
 
 ```shell
-cd $HOME/projects/zboost-workshop/actividad-backend/zboost
+cd $HOME/projects/zararanking/actividad-backend/zboost
 ```
 
 2. Dentro de ella, deberías poder ver los siguientes archivos si lanzas un comando `ls`
@@ -40,6 +58,12 @@ README.md  mvnw   mvnw.cmd   pom.xml   src
 ```shell
 ./mvnw clean install
 ```
+
+**¡Ooops!** :fearful: En este punto la operación debería de fallar y te debe de mostrar que hay
+varios tests con errores.
+
+Como parte del ejercicio deberás completar el código de la aplicación, pero no debes modificar estos tests.
+
 4. Una vez la construcción haya finalizado correctamente, lanza el siguiente comando:
 
 ```shell
@@ -52,12 +76,6 @@ ver algo como lo siguiente:
 2023-02-17T18:08:35.206+01:00  INFO 55467 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
 2023-02-17T18:08:35.213+01:00  INFO 55467 --- [           main] com.inditex.zboost.ZboostApplication     : Started ZboostApplication in 1.241 seconds (process running for 1.418)
 ```
-
-## IDE
-
-Cualquiera de los IDEs mencionados en el apartado anterior proveen soporte a la ejecución de aplicaciones de tipo Spring Boot.
-Simplemente, haz click derecho sobre la clase `ZboostApplication.java` y selecciona la opción para lanzar (`Run`) o debuggear (`Debug`)
-la aplicación.
 
 # 🗽 Proyecto
 
@@ -72,22 +90,24 @@ cada entidad (Order, Product, Ranking, ReportSummary).
 
 Adicionalmente, en la carpeta `resources` encontrarás los archivos DML y DDL usados para crear el modelo de datos. No
 te preocupes, se cargarán automáticamente cada vez que arranques la aplicación, pero siéntete libre de consultarlos si
-así lo deseas 😄
+así lo deseas 😄.
 
 # 📦 Preparación de la prueba
 
-Sabemos que estás deseoso de empezar! 🫠 Aun así, consideramos que te puede ser de mucha ayuda tener presente los siguientes
+¡Sabemos que estás deseoso de empezar! 🫠 Aun así, consideramos que te puede ser de mucha ayuda tener presente los siguientes
 puntos:
 
 🔎 Consulta el API propuesta para la actividad. Al final, el código que crearás en los ejercicios no es más que una implementación
-de los endpoints que en ella se definen.
+de los endpoints que en ella se definen. Para consultar los detalles de la API puedes cargar el archivo `openapi.yaml` que se encuentra
+en el directorio `api/` de la raiz del repositorio, puedes usar cualquier herramienta que soporte la visualización de OpenAPI 
+(por ejemplo [Swagger Editor](https://editor.swagger.io)).
 
 📖 Lee detenidamente lo que se pide tanto en la actividad como en cada ejercicio.
 
 
 💿 Accede a la consola web de la base de datos siempre que quieras. La base de datos embebida escogida para la prueba (H2)
 expone en el puerto 8082 una GUI cada vez que se levanta la aplicación. Te puede resultar de mucha utilidad para probar 
-queries y ver los datos que devuelven.
+queries y ver los datos que devuelven. Los datos originales están almacenados en el directorio `data/` en la raiz del repositorio.
 
 Para conectarte a ella, realiza lo siguiente:
 
@@ -114,6 +134,8 @@ encuentran repartidos de una forma centralizada:
 
 * IntelliJ Idea: https://www.jetbrains.com/help/idea/todo-tool-window.html
 * Eclipse: https://stackoverflow.com/questions/16903046/find-todo-tags-in-eclipse
+
+**RECUERDA**: No debes de modificar los test, únicamente el código de la aplicación.
 
 ## Ejercicio 1: Productos
 
