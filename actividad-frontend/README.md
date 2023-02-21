@@ -61,6 +61,19 @@ Algunos ejercicios tendrán dentro del código, para guiarte:
 // TODO: Ejercicio X --------------
 ``` 
 
+### :dart: Objetivos
+
+El objetivo para los siguientes ejercicios son:
+- Implementar los distintos componentes con el comportamiento requerido y que se muestren
+  correctamente en la UI.
+- Alcanzar una cobertura del código mayor a `60%` con los test que implementes. Puedes usar de referencia
+  los tests que incluye la aplicación. Puedes ver el coverage actual ejecutando `npm run coverage`.
+
+Para demostrar que has cumplido los objetivos, cuando termines el ejercicio puedes
+dejar una captura de pantalla con tus resultados en la carpeta que quieras 
+(por ejemplo `actividad-frontend/resultados/`).
+
+
 ## Ejercicio 1:
 
 Añadiremos un componente para indicar nuestro avatar en la aplicación dentro del componente `Header`.
