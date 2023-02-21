@@ -10,6 +10,7 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -27,35 +28,42 @@ class ProductsTests {
 
     @Test
     void givenAProductCatalog_whenRetrievingProductsWithoutFilteringCategory_thenFullCatalogShouldBeReturned() {
-        Product[] object = getProducts(List.of());
+        assertDoesNotThrow(() -> {
+            Product[] object = getProducts(List.of());
 
-        Map<String, List<Product>> map = Arrays.stream(object).collect(Collectors.groupingBy(Product::getCategory, Collectors.toList()));
-        assertEquals(9, object.length);
-        assertEquals(4, map.size());
-        assertEquals(3, map.get("Pants").size());
-        assertEquals(1, map.get("Dresses").size());
-        assertEquals(2, map.get("Jackets").size());
-        assertEquals(3, map.get("Sweaters").size());
+            Map<String, List<Product>> map =
+                Arrays.stream(object).collect(Collectors.groupingBy(Product::getCategory, Collectors.toList()));
+            assertEquals(9, object.length);
+            assertEquals(4, map.size());
+            assertEquals(3, map.get("Pants").size());
+            assertEquals(1, map.get("Dresses").size());
+            assertEquals(2, map.get("Jackets").size());
+            assertEquals(3, map.get("Sweaters").size());
+        });
     }
 
     @Test
     void givenAProductCatalog_whenRetrievingProductsFilteringByCategory_thenCategoryProductsShouldBeReturned() {
-        Product[] object = getProducts(List.of("Pants"));
-        verifyProducts(object, List.of("Pant A", "Pant B", "Pant C"), 3);
+        assertDoesNotThrow(() -> {
+            Product[] object = getProducts(List.of("Pants"));
+            verifyProducts(object, List.of("Pant A", "Pant B", "Pant C"), 3);
 
-        Product[] object2 = getProducts(List.of("dREssEs"));
-        verifyProducts(object2, List.of("Dress A"), 1);
+            Product[] object2 = getProducts(List.of("dREssEs"));
+            verifyProducts(object2, List.of("Dress A"), 1);
 
-        Product[] object3 = getProducts(List.of("jackets"));
-        verifyProducts(object3, List.of("Jacket A", "Jacket B"), 2);
+            Product[] object3 = getProducts(List.of("jackets"));
+            verifyProducts(object3, List.of("Jacket A", "Jacket B"), 2);
+        });
     }
 
     @Test
     void givenAProductCatalog_whenRetrievingAvailableCategories_thenAllOfThemShouldBeReturned() {
-        String[] productsCategories = getProductsCategories();
+        assertDoesNotThrow(() -> {
+            String[] productsCategories = getProductsCategories();
 
-        assertEquals(4, productsCategories.length);
-        assertTrue(Arrays.asList(productsCategories).containsAll(List.of("Pants", "Dresses", "Jackets", "Sweaters")));
+            assertEquals(4, productsCategories.length);
+            assertTrue(Arrays.asList(productsCategories).containsAll(List.of("Pants", "Dresses", "Jackets", "Sweaters")));
+        });
     }
 
     private Product[] getProducts(List<String> categories) {

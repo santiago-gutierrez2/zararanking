@@ -16,6 +16,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -39,22 +40,25 @@ class OrdersTests {
 
     @Test
     void givenAListOfOrders_whenRetrievingThemAll_thenTheyShouldBeReturned() {
+        assertDoesNotThrow( () -> {
+                Order[] object = this.testRestTemplate
+                    .getForObject("http://localhost:" + this.port + "/orders?limit={limit}", Order[].class, Map.of("limit", 10));
 
-        Order[] object = this.testRestTemplate
-                .getForObject("http://localhost:" + this.port + "/orders?limit={limit}", Order[].class, Map.of("limit", 10));
-
-        assertEquals(8, object.length);
-        assertTrue(isSorted(Arrays.asList(object), ORDER_COMPARATOR));
+                assertEquals(8, object.length);
+                assertTrue(isSorted(Arrays.asList(object), ORDER_COMPARATOR));
+            }
+        );
     }
 
     @Test
     void givenAListOfOrders_whenRetrievingThemLimitingBy1Result_thenFirstOrderIsReturned() {
-
-        Order[] object = this.testRestTemplate
+        assertDoesNotThrow( () -> {
+            Order[] object = this.testRestTemplate
                 .getForObject("http://localhost:" + this.port + "/orders?limit={limit}", Order[].class, Map.of("limit", 1));
 
-        assertEquals(1, object.length);
-        assertEquals(ORDER, object[0]);
+            assertEquals(1, object.length);
+            assertEquals(ORDER, object[0]);
+        });
     }
 
     @Test
