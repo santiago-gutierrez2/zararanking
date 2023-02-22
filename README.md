@@ -6,14 +6,14 @@ En esta workshop, tendrás la oportunidad de trabajar con una base de datos que 
 
 **_Será muy valorado si el participante desea realizar las dos actividades._**
 
-### 1. Actividad orientada al desarrollo backend
+### 1. [Actividad orientada al desarrollo backend](actividad-backend/zboost/README.md)
 
 En esta actividad el usuario deberá **crear un API Rest** utilizando **Java**, que conecte con una base de datos y permita obtener un ranking de los productos más vendidos entre dos fechas determinadas. 
 
 Dentro de la carpeta **actividad-backend/zboost** encontraras el fichero `readme.md` con la información necesaria para trabajar con el proyecto, desde la instalación, la ejecución de la aplicación y la configuración básica, podrás también encontrar los **ejercicios** a desarrollar en esta prueba.
 
 
-### 2. Actividad orientada al desarrollo frontend
+### 2. [Actividad orientada al desarrollo frontend](actividad-frontend/README.md)
 
 El objetivo de este ejercicio es desarrollar una aplicación web utilizando para ello  **ReactJS** que permita a los usuarios ver un ranking de prendas y filtrarlas por tipo y fecha 
 
