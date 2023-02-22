@@ -20,8 +20,29 @@ El objetivo de este ejercicio es desarrollar una aplicación web utilizando para
 Dentro de la carpeta **actividad-frontend** encontraras el fichero `readme.md` con toda la información necesaria para trabajar con el proyecto, desde la instalación del entorno en local, su ejecución y también podrás encontrar los **ejericicios** a desarrollar en esta prueba.
 
 ## Como desarrollar la actividad
-### Crea una rama de desarrollo local
 
-El usuario deberá crear una rama con la siguiente nomenclatura `zboost/nombre-apellidos`, por ejemplo: `zboost/jorge-garcia-rey` y subir a una carpeta `workshop` los cambios asociados a la actividad seleccionada.
+Para subir estos cambios tienes hacer un **FORK** de este repositorio y una posterior **PULL REQUEST**.
+Una vez el tiempo finalice, deberá subir los cambios y crear una **PULL REQUEST** para su posterior validación.
 
-Una vez el usuario haya terminado la tarea o el tiempo finalice, deberá subir los cambios a su rama (`git push`) para su posterior validación.
+Ten en cuenta que necesitas una cuenta en GitHub para subir los cambios del ejercicio, si no tienes una ¡ahora es un buen momento
+para [crearla](https://github.com/join)!
+
+1. Crea una copia de este repositorio usando `Fork` desde GitHub. Puedes acceder directamente desde esta interfaz web en la parte superior derecha.
+
+2. Una vez creado el fork tendrás una copia del repositorio en tu cuenta. Clona tu nuevo repositorio en local para
+trabajar en él.
+```sh
+git clone [tu_usuario_github]/zararanking
+```
+
+3. Añade los cambios que realices y subelos a tu rama `main`:
+```sh
+git add .
+git commit -m "actividad zboost"
+```
+4. Crea una **Pull Request** al repositorio original. Una vez subidos los cambios en el paso anterior puedes encontrar en la
+interfaz web una notificación que te permite crearla directamente.
+
+Tienes más información sobre este proceso en [la documentación oficial de GitHub](https://docs.github.com/es/get-started/quickstart/contributing-to-projects).
+
+**RECUERDA**: No subas tus cambios hasta el que tiempo finalice.
