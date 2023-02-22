@@ -232,7 +232,16 @@ components:
         products:
           type: array
           items:
-            $ref: '#/components/schemas/Product'
+            $ref: '#/components/schemas/ProductOrderItem'
+    ProductOrderItem:
+      allOf:
+        - $ref: '#/components/schemas/Product'
+      type: object
+      properties:
+        quantity:
+          type: integer
+          format: int64
+          example: 3
     RankingType:
       type: string
       description: Ranking Type

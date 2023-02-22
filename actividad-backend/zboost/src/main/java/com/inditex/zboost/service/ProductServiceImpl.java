@@ -34,6 +34,8 @@ public class ProductServiceImpl implements ProductService {
          *
          * "WHERE name = " + person.getName() + " AND ..." ==> MAL
          * "WHERE name = :name AND ..." ==> BIEN
+         * 
+         *  Pista: A la hora de filtrar, pasar los valores a mayúsculas o minúsculas. Ejemplo: Uso de la función SQL upper().
          */
 
         Map<String, Object> params = new HashMap<>();

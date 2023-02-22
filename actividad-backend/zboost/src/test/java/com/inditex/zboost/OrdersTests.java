@@ -2,6 +2,7 @@ package com.inditex.zboost;
 
 import com.inditex.zboost.entity.Order;
 import com.inditex.zboost.entity.OrderDetail;
+import com.inditex.zboost.entity.ProductOrderItem;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -30,7 +31,13 @@ class OrdersTests {
     private static final Comparator<Order> ORDER_COMPARATOR = ((o1, o2) -> o2.getDate().compareTo(o1.getDate()));
 
     private static Order ORDER = createOrder(7, "09/01/2023", "approved");
-    private static Order ORDER_DETAIL = createOrderDetail(7, "09/01/2023", "approved", 341.9, 6);
+    private static OrderDetail ORDER_DETAIL = createOrderDetail(7, "09/01/2023", "approved", 341.9, 14, List.of(
+            createProductOrderItem(1, "Pant A", 10.13, "Pants", "/assets/products/pant_a.jpg", 2),
+            createProductOrderItem(2, "Pant B", 12.44, "Pants", "/assets/products/pant_b.jpg", 3),
+            createProductOrderItem(3, "Pant C", 28.88, "Pants", "/assets/products/pant_c.jpg", 1),
+            createProductOrderItem(4, "Dress A", 76.33, "Dresses", "/assets/products/dress_a.jpg", 1),
+            createProductOrderItem(7, "Sweater A", 25.23, "Sweaters", "/assets/products/sweater_a.jpg", 5),
+            createProductOrderItem(8, "Sweater B", 26.48, "Sweaters", "/assets/products/sweater_b.jpg", 2)));
 
     @Autowired
     private TestRestTemplate testRestTemplate;
@@ -84,7 +91,7 @@ class OrdersTests {
         }
     }
 
-    private static OrderDetail createOrderDetail(long id, String date, String status, Double totalPrice, Integer itemsCount) {
+    private static OrderDetail createOrderDetail(long id, String date, String status, Double totalPrice, Integer itemsCount, List<ProductOrderItem> productOrderItems) {
         OrderDetail orderDetail = new OrderDetail();
         try {
             orderDetail.setId(id);
@@ -92,6 +99,7 @@ class OrdersTests {
             orderDetail.setStatus(status);
             orderDetail.setTotalPrice(totalPrice);
             orderDetail.setItemsCount(itemsCount);
+            orderDetail.setProducts(productOrderItems);
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
@@ -113,6 +121,18 @@ class OrdersTests {
             previous = current;
         }
         return true;
+    }
+    
+    private static ProductOrderItem createProductOrderItem(final long id, final String name, final Double price,
+                                                           final String category, final String imageUrl, final int quantity) {
+        ProductOrderItem productOrderItem = new ProductOrderItem();
+        productOrderItem.setId(id);
+        productOrderItem.setName(name);
+        productOrderItem.setPrice(price);
+        productOrderItem.setCategory(category);
+        productOrderItem.setImageUrl(imageUrl);
+        productOrderItem.setQuantity(quantity);
+        return productOrderItem;
     }
 
 }

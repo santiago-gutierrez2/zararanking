@@ -35,4 +35,13 @@ public class OrderDetail extends Order implements Serializable {
     public void setItemsCount(Integer itemsCount) {
         this.itemsCount = itemsCount;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        OrderDetail orderDetail = (OrderDetail) o;
+        return super.equals(o) && totalPrice.equals(orderDetail.totalPrice) && itemsCount.equals(orderDetail.itemsCount)
+                && products.equals(orderDetail.products);
+    }
 }
